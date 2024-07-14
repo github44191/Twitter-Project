@@ -20,7 +20,7 @@ const MainPage = ({user}) => {
   const email = user?.email;
 
     const fetchUserData = () => {
-        fetch(`http://localhost:5000/loggedInUser?email=${email}`)
+        fetch(`https://twitter-project-1-axzc.onrender.com/loggedInUser?email=${email}`)
             .then(res => res.json())
             .then(data => {
                 setLoggedInUser(data)
@@ -34,7 +34,7 @@ const MainPage = ({user}) => {
 
   const username = user?.email?.split('@')[0];
   useEffect(() => {
-    fetch(`http://localhost:5000/userPost?email=${user?.email}`)
+    fetch(`https://twitter-project-1-axzc.onrender.com/userPost?email=${user?.email}`)
     .then(res => res.json())
     .then(data => {
       setPosts(data)
@@ -55,7 +55,7 @@ const MainPage = ({user}) => {
       }
       setIsLoading(false);
       if (url) {
-        axios.patch(`http://localhost:5000/userUpdates/${user?.email}`, userCoverImage)
+        axios.patch(`https://twitter-project-1-axzc.onrender.com/userUpdates/${user?.email}`, userCoverImage)
         .then(res => fetchUserData());
       }
     })
@@ -78,7 +78,7 @@ const MainPage = ({user}) => {
       }
       setIsLoadingProfile(false);
       if (url) {
-        axios.patch(`http://localhost:5000/userUpdates/${user?.email}`, userProfileImage)
+        axios.patch(`https://twitter-project-1-axzc.onrender.com/userUpdates/${user?.email}`, userProfileImage)
         .then(res => fetchUserData());
       }
     })
