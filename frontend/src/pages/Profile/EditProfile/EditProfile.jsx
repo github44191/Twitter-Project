@@ -81,7 +81,7 @@ function EditProfile({ user, loggedInUser, fetchUserData }) {
       dob: dob ? dob : loggedInUser?.dob
     }
     if (editedInfo) {
-      await axios.patch(`https://twitter-project-1-axzc.onrender.com/userUpdates/${user?.email}`, editedInfo)
+      await axios.patch(`http://localhost:5000/userUpdates/${user?.email}`, editedInfo)
       .then(fetchUserData);
       setOpen(false)
     }

@@ -46,7 +46,7 @@ function Signup() {
       displayName,
       email
     };
-    axios.post(`https://twitter-project-1-axzc.onrender.com/register`, user);
+    axios.post(`http://localhost:5000/register`, user);
   }
 
   const handleGoogleSignIn = () => {
@@ -57,7 +57,7 @@ function Signup() {
     //   email: googleUser.username.auth.email
     // }
     console.log(googleUser);
-    axios.post(`https://twitter-project-1-axzc.onrender.com/register`, user)
+    axios.post(`http://localhost:5000/register`, user)
   }
   return (
     <>
