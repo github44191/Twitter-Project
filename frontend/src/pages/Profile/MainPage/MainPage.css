@@ -1,3 +1,15 @@
+
+@media screen and (max-width:380px) {
+  .mainPage {
+    width: 100vw;
+    height: 100vh;
+  }
+  .coverImage {
+    max-width: 100vw;
+  }
+
+}
+
 .arrow-icon {
   margin: 10px;
   cursor: pointer;

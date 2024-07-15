@@ -93,7 +93,7 @@ const MainPage = ({user}) => {
   }
 
   return (
-    <div>
+    <div className='mainPage'>
       <ArrowBackIcon className='arrow-icon' onClick={() => navigate('/')} />
       <h4 className='heading-4'>{username}</h4>
       <div className="mainProfile">

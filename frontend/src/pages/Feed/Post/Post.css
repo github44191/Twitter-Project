@@ -56,3 +56,20 @@
 .post_avatar {
   padding: 20px;
 }
+
+@media screen and (max-width:380px) {
+  .post_image {
+    max-width: max-content;
+  }
+  .post_avatar {
+    padding: .5rem;
+  }
+  .post_body h3 {
+    font-size: .8rem;
+    display: inline;
+  }
+  .post_headerSpecial {
+    display: inline;
+  }
+
+}

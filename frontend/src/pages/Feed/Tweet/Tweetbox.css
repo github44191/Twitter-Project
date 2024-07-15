@@ -62,3 +62,12 @@
 .inputText:focus {
   outline: none;
 }
+
+@media screen and (max-width:380px) {
+  .feed__header {
+    width: 100vw;
+  }
+  .tweetBox__input {
+    width: 100vw;
+  }
+}
