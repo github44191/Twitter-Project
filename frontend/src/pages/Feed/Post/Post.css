@@ -58,8 +58,14 @@
 }
 
 @media screen and (max-width:380px) {
+  .post {
+    width: 100vw;
+  }
+  .post_header {
+    width: 80vw;
+  }
   .post_image {
-    max-width: max-content;
+    width: 80vw;
   }
   .post_avatar {
     padding: .5rem;
@@ -67,6 +73,9 @@
   .post_body h3 {
     font-size: .8rem;
     display: inline;
+  }
+  .post_headerDescription > p {
+    display: flex;
   }
   .post_headerSpecial {
     display: inline;

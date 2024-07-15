@@ -65,9 +65,16 @@
 
 @media screen and (max-width:380px) {
   .feed__header {
-    width: 100vw;
+    width: inherit;
   }
   .tweetBox__input {
+    width: fit-content;
+  }
+  .tweetBox > form {
+    width: inherit;
+  }
+  .tweetBox {
     width: 100vw;
+    padding-right: 0;
   }
 }

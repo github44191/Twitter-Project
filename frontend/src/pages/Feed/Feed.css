@@ -16,9 +16,16 @@
   z-index: 100;
   border: 1px solid var(--twitter-background);
   padding: 15px 20px;
+  width: inherit;
 }
 
 .feed__header>h2 {
   font-size: 20px;
   font-weight: 800;
+}
+
+@media screen and (max-width:380px) {
+  .feed {
+    width: 88vw;
+  }
 }
