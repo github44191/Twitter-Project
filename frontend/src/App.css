@@ -2,6 +2,7 @@ body {
   --twitter-color: rgb(31, 165, 253);
   --twitter-background: #e6ecf0;
   font-family: roboto;
+  height: 100vh;
 }
 
 .app {
