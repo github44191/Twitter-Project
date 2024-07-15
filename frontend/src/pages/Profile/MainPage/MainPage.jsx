@@ -1,4 +1,4 @@
-import  { React, useContext, useEffect } from 'react'
+import  { React, useCallback, useContext, useEffect } from 'react'
 import './MainPage.css'
 import ArrowBackIcon from '@mui/icons-material/ArrowBack';
 import {useNavigate}  from 'react-router-dom';
@@ -18,28 +18,32 @@ const MainPage = ({user}) => {
    setIsLoadingProfile, loggedInUser, setLoggedInUser} = useContext(UserContext);
 
   const email = user?.email;
+  const username = user?.email?.split('@')[0];
 
-    const fetchUserData = () => {
+    const fetchUserData = useCallback(() => {
         fetch(`https://twitter-project-354k.onrender.com/loggedInUser?email=${email}`)
             .then(res => res.json())
             .then(data => {
                 setLoggedInUser(data)
             });
-    }
+    },[email,setLoggedInUser])
 
     useEffect(() => {
         fetchUserData();
-    },[])
-    
+    },[fetchUserData])
 
-  const username = user?.email?.split('@')[0];
-  useEffect(() => {
-    fetch(`https://twitter-project-354k.onrender.com/userPost?email=${user?.email}`)
+    const fetchUserPosts = useCallback(()=> {
+      fetch(`https://twitter-project-354k.onrender.com/userPost?email=${user?.email}`)
     .then(res => res.json())
     .then(data => {
       setPosts(data)
     });
-  },[user?.email]);
+    },[user?.email,setPosts]);
+    
+
+  useEffect(() => {
+    fetchUserPosts();
+  },[fetchUserPosts]);
 
   const handleUploadCoverImage = (e) => {
     setIsLoading(true);

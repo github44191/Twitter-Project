@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, useState } from "react";
+import React, { useCallback, useContext, useEffect, useState } from "react";
 import "./Sidebar.css";
 import SidebarOptions from "./SidebarOptions";
 import TwitterIcon from "@mui/icons-material/Twitter";
@@ -26,21 +26,24 @@ import { useNavigate } from "react-router-dom";
 
 function Sidebar({ handleLogout, user }) {
 
+  const [anchorEl, setAnchorEl] = useState(false);
+  const openMenu = Boolean(anchorEl);
+  const {loggedInUser, setLoggedInUser} = useContext(UserContext);
+  const navigate = useNavigate();
   const email = user?.email;
-  const fetchUserData = () => {
+  
+  const fetchUserData = useCallback(() => {
     fetch(`https://twitter-project-354k.onrender.com/loggedInUser?email=${email}`)
         .then(res => res.json())
         .then(data => {
             setLoggedInUser(data)
         });
-}
-  useEffect(() => {
+},[email,setLoggedInUser])
+
+useEffect(() => {
     fetchUserData();
-  },[])
-  const [anchorEl, setAnchorEl] = useState(false);
-  const openMenu = Boolean(anchorEl);
-  const {loggedInUser, setLoggedInUser} = useContext(UserContext);
-  const navigate = useNavigate();
+},[fetchUserData]);
+
  
   const userProfilePic = loggedInUser[0]?.profileImage ? loggedInUser[0]?.profileImage : 'https://cdn.pixabay.com/photo/2016/08/08/09/17/avatar-1577909_960_720.png';
 
