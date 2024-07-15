@@ -12,7 +12,7 @@ const Tweetbox = () => {
   const navigate = useNavigate();
 
   const fetchPosts = () => {
-    fetch(`http://localhost:5000/post`)
+    fetch(`https://twitter-project-354k.onrender.com/post`)
         .then(res => res.json())
         .then(data => {
             setPosts(data); // Update posts only when fetched
@@ -50,7 +50,7 @@ const Tweetbox = () => {
   const handleTweet =(e) => {
     e.preventDefault();
     if(user.providerData[0].providerId === 'password') {
-      fetch(`http://localhost:5000/loggedInUser?email=${email}`)
+      fetch(`https://twitter-project-354k.onrender.com/loggedInUser?email=${email}`)
       .then(res => res.json())
       .then(data => {
         // console.log(data)
@@ -73,7 +73,7 @@ const Tweetbox = () => {
       }
       setPost('');
       setImageURL('');
-      fetch('http://localhost:5000/post', {
+      fetch('https://twitter-project-354k.onrender.com/post', {
         method: "POST",
         headers: {
           'content-type': "application/json"

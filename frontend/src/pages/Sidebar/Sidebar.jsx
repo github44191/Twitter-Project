@@ -28,7 +28,7 @@ function Sidebar({ handleLogout, user }) {
 
   const email = user?.email;
   const fetchUserData = () => {
-    fetch(`http://localhost:5000/loggedInUser?email=${email}`)
+    fetch(`https://twitter-project-354k.onrender.com/loggedInUser?email=${email}`)
         .then(res => res.json())
         .then(data => {
             setLoggedInUser(data)
